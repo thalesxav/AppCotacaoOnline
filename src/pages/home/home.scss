@@ -1,3 +1,169 @@
 page-home {
+    font-family: Helvetica;
+
+    .content {
+        background-image: url(../assets/imgs/background.png);
+        background-repeat: no-repeat;
+        background-position: 0;  
+        background-size: 100%;        
+    }
+
+    .imageTitle {
+        height: auto;
+        width: auto;
+    }
+
+    .placaInputContainer {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grid {
+        position: absolute;
+        top: 35%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
+        
+    }
+
+    .placa1Container {
+        position: absolute;
+        top: 18rem;
+        height: 6rem;
+        width: 45%;
+        left: 16%;
+        padding-right: 0.1rem;
+    }
+
+    .placa2Container {
+        position: absolute;
+        top: 18rem;        
+        width: 43%;    
+        left: 40%; 
+        padding-left: 0.1rem;  
+    }
+
+    .placa1 {
+        background-color: white;   
+        width: 8rem;        
+        margin-left: auto;
+        margin-right: 0;
+        border-radius: 0.5rem;
+        font-size: 2rem;  
+        border: 0.2rem solid black;    
+        height: 5rem;                  
+    }
+
+    .placa2 {        
+        background-color: white;   
+        width: 8rem;
+        margin-left: 0;
+        border-radius: 0.5rem;
+        font-size: 2rem;        
+        border: 0.2rem solid black;
+        height: 5rem;
+        overflow: hidden;
+    }
+    
+    .button {
+        background-color: rgb(0, 128, 38);
+        position: relative;
+        margin-top: 0;    
+        padding-top: 0;    
+        top: 22rem;
+        font-size: 2.8rem;
+    }
+
+    .titulo {
+        font-size: 2rem;
+        color: #fff;
+        opacity: 0.5;
+    }
+
+    .tituloSelected {
+        font-size: 2rem;
+        color: #fff;   
+    }        
+
+    .imagens {
+        opacity: 0.5;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 5rem;
+    }
+
+    .selected {                
+        vertical-align: middle;
+        display: inline-block;
+        margin-top: 5rem;
+    }    
+
+    .imageContainer1 {
+        opacity: 0.8;
+        background-color: black;
+        text-align: center;    
+        position: absolute;
+        top: 2rem;
+        height: 20rem;
+        width: 43%;
+        left: 5%;
+    }
+
+    .imageContainer2 {
+        opacity: 0.8;
+        background-color: black;     
+        text-align: center;     
+        position: absolute;    
+        top: 2rem;
+        height: 20rem;
+        width: 43%;    
+        left: 52%;               
+    }
+
+    .imageContainer3 {
+        opacity: 0.8;
+        background-color: black; 
+        text-align: center;   
+        position: absolute;   
+        top: 23rem;     
+        height: 20rem;
+        width: 43%;
+        left: 5%;        
+    }
+    
+    .imageContainer4 {
+        opacity: 0.8;
+        background-color: black;  
+        text-align: center;   
+        position: absolute; 
+        top: 23rem;   
+        height: 20rem;
+        width: 43%;    
+        left: 52%;         
+    }   
+
+    .placaContainer{
+        position: absolute;
+        top: 18rem;
+        background-color: white;   
+        height: 6rem;
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        font-size: 2rem;
+    }
+
+    ion-input {
+        input {
+            text-align: center;
+            ::-webkit-input-placeholder {
+            text-align: center;
+            }
+        }
+    } 
 
 }

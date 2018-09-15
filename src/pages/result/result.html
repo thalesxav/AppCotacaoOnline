@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="white">    
+    <ion-title>
+        <img class="imageTitle" src="assets/imgs/UltraBrasil.jpg" />
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <p text-center>Qual destes é o veículo da placa</p>
+  <h2 text-center>{{placa}}?</h2>
+  <ion-list>
+    <ion-card *ngFor="let item of cotacaoList.dados; let i = index">
+      <ion-item (click)="getCotacao(i);">
+        <h2>{{item.veiculo}}</h2>
+        <p>{{item.combustivel}} - {{item.ano_modelo}} - {{item.preco}}</p>
+      </ion-item>          
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+

@@ -1,14 +1,45 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="white">    
     <ion-title>
-      Ionic Blank
+        <img class="imageTitle" src="assets/imgs/UltraBrasil.jpg" />
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <div class="imageContainer1" text-center (click)="onTipoVeiculoClick('0')">
+    <img *ngIf="tipo !== '0'" class="imagens" src="assets/imgs/carros.png"/>
+    <img *ngIf="tipo == '0'" class="selected" src="assets/imgs/carros.png"/>
+    <div *ngIf="tipo !== '0'" class="titulo">Carros</div>
+    <div *ngIf="tipo == '0'" class="tituloSelected">Carros</div>
+  </div>
+  <div class="imageContainer2" text-center (click)="onTipoVeiculoClick('1')">
+    <img *ngIf="tipo !== '1'" class="imagens" src="assets/imgs/motos.png"/>
+    <img *ngIf="tipo == '1'" class="selected" src="assets/imgs/motos.png"/>
+    <div *ngIf="tipo !== '1'" class="titulo">Motos</div>
+    <div *ngIf="tipo == '1'" class="tituloSelected">Motos</div>
+  </div>
+  <div class="imageContainer3" text-center (click)="onTipoVeiculoClick('3')">
+    <img *ngIf="tipo != '3'" class="imagens" src="assets/imgs/caminhao.png"/>
+    <img *ngIf="tipo == '3'" class="selected" src="assets/imgs/caminhao.png"/>
+    <div *ngIf="tipo !== '3'" class="titulo">Caminhões</div>
+    <div *ngIf="tipo == '3'" class="tituloSelected">Caminhões</div>
+  </div>  
+  <div class="imageContainer4" text-center (click)="onTipoVeiculoClick('2')">
+    <img *ngIf="tipo != '2'" class="imagens" src="assets/imgs/vans.png"/>
+    <img *ngIf="tipo == '2'" class="selected" src="assets/imgs/vans.png"/>
+    <div *ngIf="tipo !== '2'" class="titulo">Vans</div>
+    <div *ngIf="tipo == '2'" class="tituloSelected">Vans</div>
+  </div>
+  <div text-center class="placa1Container">
+    <input text-center class="placa1" [(ngModel)]="placa1" (ngModelChange)="onChange($event)" type="text" placeholder="___" value=""/>
+  </div>
+  <div text-center class="placa2Container">
+    <input id="placa2" class="placa2" text-center type="number" [(ngModel)]="placa2" placeholder="____" value=""/>
+  </div>
+  <div text-center>
+    <button ion-button medium class="button" (click)="getCotacao()">
+      COTAÇÃO
+    </button>        
+  </div>
 </ion-content>

@@ -1,0 +1,22 @@
+page-login {
+    font-family: Helvetica;
+
+    .content {
+        background-image: url(../assets/imgs/background.png);
+        background-repeat: no-repeat;
+        background-position: 0;  
+        background-size: 100%;        
+    }
+
+    .imageTitle {
+        height: auto;
+        width: auto;
+    }
+
+    .login{
+        position: absolute;
+        top: 25vh;
+        left: 10vw;
+        width: 80vw;
+    }
+}

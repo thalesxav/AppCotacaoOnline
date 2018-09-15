@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar color="white">    
+    <ion-title text-center>
+        COTAÇÃO ONLINE
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content">  
+  <ion-card text-center class="card">
+    <div class="cardTitle">{{valorTotal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}}</div>
+  </ion-card>
+  <ion-item text-wrap>
+    <div class="veiculo">
+      Veículo: {{cotacao.modelo}} ({{cotacao.ano}}) <br> 
+      FIPE: {{cotacao.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}}
+    </div>    
+  </ion-item>
+  <ion-item class="terceiros">
+    <div text-center>
+      Terceiros: {{cotacao.TIP_TERCEIROS.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}}
+    </div>
+    <ul class="terceirosItems">
+      <li text-wrap class="itens" *ngFor="let item of cotacao.TIP_BENEFICIOS">
+        {{item}}
+      </li>
+    </ul>
+  </ion-item>
+  <ion-item class="cobertura">
+    <ul class="coberturaItems">
+      <li text-wrap class="itens2" *ngFor="let item of cotacao.TIP_BENEFICIOS_2">
+        {{item}}
+      </li>
+    </ul>    
+  </ion-item>
+  <div class="kmlivreContainer">
+    <ion-checkbox class="kmlivreItem2" [(ngModel)]="kmlivre" (ionChange)="onTipoPlano()"></ion-checkbox>
+    <ion-label class="kmlivreItem1">KM Livre</ion-label>    
+  </div>
+  <div class="rasreadorContainer" *ngIf="!isRastreadorObrigatorio()">
+    <ion-checkbox class="rastreadorItem2" [(ngModel)]="rastreador" (ionChange)="onTipoPlano()"></ion-checkbox>    
+    <ion-label class="rastreadorItem1">Instalação de Rastreador R$ 39,90</ion-label>
+  </div>
+  <div class="rasreadorContainer" *ngIf="isRastreadorObrigatorio()">
+    <ion-checkbox class="rastreadorItem2" [(ngModel)]="rastreador" disabled="true"></ion-checkbox>    
+    <ion-label class="rastreadorItem1">Instalação de Rastreador Obrigatório R$ 39,90</ion-label>
+  </div>    
+  <div class="carroReserva" text-center *ngIf="!isMoto()">
+    Carro Reserva
+  </div>  
+  <ion-list class="carroReservaList" radio-group [(ngModel)]="carroReserva" *ngIf="!isMoto()">
+    <ion-row class="rowClass">
+      <ion-col col-4>
+        <ion-radio color="primary"  checked="{{carro7Dias}}" (ionSelect)="onTipoPlano(1)"></ion-radio>
+        <span>7 Dias</span>
+        <div>+R${{cotacao.TIP_CARRO_RESERVA_7}}</div>        
+      </ion-col>
+      <ion-col col-4>
+        <ion-radio color="primary"  checked="{{carro15Dias}}" (ionSelect)="onTipoPlano(2)"></ion-radio>
+        <span>15 Dias</span>
+        <div>+R${{cotacao.TIP_CARRO_RESERVA_15}}</div>
+      </ion-col>
+      <ion-col col-4>
+        <ion-radio color="primary"  checked="{{carro30Dias}}" (ionSelect)="onTipoPlano(3)"></ion-radio>
+        <span>30 Dias</span>
+        <div>+R${{cotacao.TIP_CARRO_RESERVA_30}}</div>
+      </ion-col>            
+    </ion-row>                 
+  </ion-list>    
+  <ion-list radio-group [(ngModel)]="vidros" *ngIf="!isImportado() && !isMoto()">
+    <div class="coberturaVidros" text-center>
+      Cobertura dos Vidros
+    </div>            
+    <ion-row class="rowClass2">
+      <ion-col col-6>
+        <ion-radio color="primary" value="1" checked="{{parabrisa}}" (ionSelect)="onTipoPlano(4)"></ion-radio>
+        <span>Parabrisas</span>
+        <div text-center>+ R${{cotacao.TIP_PARABRISAS}}</div>        
+      </ion-col>
+      <ion-col col-6 *ngIf="cotacao.TIP_ID != '4'">
+        <ion-radio color="primary" value="2" checked="{{todosVidros}}" (ionSelect)="onTipoPlano(5)"></ion-radio>
+        <span>Todos os Vidros</span>
+        <div text-center>+ R${{cotacao.TIP_TODOS_VIDROS}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-list>  
+     
+  <ion-fab right middle (click)="share()">
+    <button ion-fab mini color="primary"><ion-icon name="share"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
+
